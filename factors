@@ -24,3 +24,4 @@ while line:
     p = n // q
     print(f"{n}={p}*{q}")
     line = f.readline()
+f.close()

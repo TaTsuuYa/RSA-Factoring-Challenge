@@ -2,13 +2,10 @@
 from sys import argv
 
 def fac(n: int) -> int:
-    i = 2
-    while i < n:
-        x = n // i
-        if x * i == n:
-            return x, i
-        i += 1
-    return None
+    for i in range(2, n):
+        if n % i == 0:
+            return i
+    return 1
 
 if len(argv) <= 1:
     print("Usage: factors <file>")
@@ -19,6 +16,7 @@ f = open(argv[1])
 line = f.readline()
 while line:
     n = int(line)
-    p, q = fac(n)
+    q = fac(n)
+    p = n // q
     print(f"{n}={p}*{q}")
     line = f.readline()
